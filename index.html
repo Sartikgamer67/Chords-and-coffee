@@ -201,6 +201,112 @@ nav a:hover::after {
     transform: translateY(-35px) rotate(15deg);
   }
 }
+/* PURPLE MOUSE SPOTLIGHT */
+body {
+  background-image: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 20%),
+    rgba(168,85,247,.12),
+    transparent 35%
+  );
+  background-attachment: fixed;
+}
+
+/* HERO GLOW */
+.hero h1 span {
+  text-shadow: 0 0 15px #a855f7,
+               0 0 35px #a855f755;
+  animation: neonPulse 2.5s infinite alternate;
+}
+
+@keyframes neonPulse {
+  from { text-shadow: 0 0 8px #a855f7; }
+  to { text-shadow: 0 0 30px #a855f7, 0 0 55px #a855f799; }
+}
+
+/* GALLERY IMAGE EFFECT */
+.gallery img {
+  transition: transform .6s ease, filter .6s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.08) rotate(1.5deg);
+  filter: brightness(1.2);
+}
+
+/* MENU BORDER GLOW */
+.menu-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-item:hover {
+  border-color: #d8b4fe;
+  box-shadow: 0 0 25px #a855f755;
+}
+
+/* FLOATING HERO BACKGROUND */
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  background: #a855f7;
+  filter: blur(150px);
+  opacity: .15;
+  right: 5%;
+  top: 20%;
+  animation: purpleFloat 6s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes purpleFloat {
+  from { transform: translate(0,0); }
+  to { transform: translate(-70px,40px); }
+}
+
+/* SECTION REVEAL */
+.reveal.visible .section-title h2 {
+  animation: titlePop .8s ease both;
+}
+
+@keyframes titlePop {
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* STUDIO CARDS */
+.card {
+  transition: transform .4s ease, box-shadow .4s ease;
+}
+
+.card:hover {
+  transform: translateY(-12px) rotate(-1deg);
+  box-shadow: 0 15px 35px #a855f755;
+}
+
+/* BUTTON PULSE */
+.btn {
+  animation: buttonGlow 3s ease-in-out infinite;
+}
+
+@keyframes buttonGlow {
+  0%,100% { box-shadow: 0 0 0 transparent; }
+  50% { box-shadow: 0 0 16px #a855f755; }
+}
+  // Your existing booking form code stays here...
+
+document.addEventListener("mousemove", (e) => {
+  document.body.style.setProperty("--mouse-x", e.clientX + "px");
+  document.body.style.setProperty("--mouse-y", e.clientY + "px");
+});
+
+</script>
 </style>
 </head>
 
