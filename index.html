@@ -5,88 +5,57 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chords & Coffee | The Jamming Studio</title>
-<meta name="description" content="Chords & Coffee – The Jamming Studio in Mira Road. Your space to create, connect and jam.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --bg:#101014;
-  --card:#1b1b23;
-  --purple:#8b45ff;
-  --white:#fff;
-  --muted:#aaa8b5;
-}
 *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
-body{background:var(--bg);color:var(--white);font-family:Inter,sans-serif;line-height:1.6}
-a{text-decoration:none;color:inherit}
-button,input,textarea{font:inherit}
-.container{width:min(1120px,90%);margin:auto}
-nav{height:76px;display:flex;align-items:center;justify-content:space-between;background:#101014ed;position:sticky;top:0;z-index:10;padding:0 5%;border-bottom:1px solid #ffffff12;backdrop-filter:blur(12px)}
-.logo{font-family:Poppins,sans-serif;font-size:20px;font-weight:800}
-.logo span{color:var(--purple)}
-.navlinks{display:flex;gap:26px;align-items:center}
-.navlinks a{font-size:13px;color:#ccc}
-.navlinks a:hover{color:var(--purple)}
-.btn{display:inline-block;background:var(--purple);color:white;padding:13px 23px;border-radius:7px;font-weight:700;font-size:13px;border:1px solid var(--purple);transition:.25s;cursor:pointer}
-.btn:hover{background:#7130dc;transform:translateY(-3px)}
-.btn-outline{background:transparent;border-color:#ffffff55}
-.hero{min-height:650px;display:flex;align-items:center;background:linear-gradient(90deg,#101014 5%,#101014d9 48%,#10101445),url('https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1800&q=85') center/cover}
-.hero-content{max-width:720px;padding:100px 0}
-.tag{color:#bb91ff;font-size:12px;font-weight:800;letter-spacing:4px;text-transform:uppercase}
-h1,h2,h3{font-family:Poppins,sans-serif;line-height:1.2}
-h1{font-size:clamp(42px,7vw,76px);margin:20px 0}
-h1 span{color:var(--purple)}
-.hero p{color:#d0ced8;max-width:550px;margin-bottom:30px;font-size:17px}
-.hero .btn{margin:5px 8px 5px 0}
-section{padding:95px 0}
-.section-head{text-align:center;margin-bottom:48px}
-.section-head h2{font-size:clamp(28px,4vw,42px);margin:12px 0}
-.section-head p{color:var(--muted);max-width:580px;margin:auto}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
-.about-img{width:100%;height:380px;object-fit:cover;border-radius:15px}
-.about-text h2{font-size:36px;margin:15px 0}
-.about-text p{color:var(--muted);margin:15px 0}
+body{font-family:'Poppins',sans-serif;background:#09090d;color:white}
+:root{--purple:#a855f7;--light:#d8b4fe}
+nav{position:sticky;top:0;z-index:10;background:#101016ee;backdrop-filter:blur(12px);padding:18px 7%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #292333}
+.logo{font-size:22px;font-weight:800;color:var(--light)}
+nav a{color:white;text-decoration:none;margin-left:20px;font-size:13px}
+nav a:hover{color:var(--light)}
+.hero{min-height:85vh;display:flex;align-items:center;padding:70px 10%;background:linear-gradient(90deg,#09090df2,#09090d88),url('https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1800&q=85') center/cover}
+.hero-content{max-width:700px}
+.tag{color:var(--light);letter-spacing:4px;font-size:12px}
+h1{font-size:clamp(42px,7vw,78px);line-height:1.12;margin:20px 0}
+h1 span{color:var(--light)}
+p{color:#bbb;line-height:1.8}
+.btn{display:inline-block;padding:13px 24px;background:var(--purple);color:white;text-decoration:none;border-radius:7px;margin:25px 10px 0 0;font-size:13px;font-weight:600}
+.btn.outline{background:transparent;border:1px solid var(--purple)}
+section{padding:85px 10%}
+.section-title{text-align:center;margin-bottom:45px}
+.section-title h2{font-size:36px;margin-bottom:12px}
+.section-title span{color:var(--light)}
+.about-grid,.cafe-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.about-grid img,.cafe-grid img{width:100%;height:350px;object-fit:cover;border-radius:15px}
+h3{font-size:24px;margin-bottom:15px}
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.card{background:var(--card);padding:28px;border:1px solid #ffffff12;border-radius:13px;transition:.3s}
-.card:hover{transform:translateY(-7px);border-color:var(--purple)}
-.card .symbol{font-size:32px;margin-bottom:15px}
-.card h3{font-size:18px;margin-bottom:10px}
-.card p{font-size:14px;color:var(--muted)}
+.card{background:#15141d;padding:28px;border:1px solid #30263c;border-radius:12px}
+.card h3{color:var(--light);font-size:19px}
+.card p{font-size:13px}
+.menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+.menu-item{background:#15141d;padding:20px;border-radius:9px;border:1px solid #30263c}
+.menu-item h3{font-size:17px;color:var(--light)}
+.menu-item p{font-size:13px}
 .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
-.gallery img{width:100%;height:240px;object-fit:cover;border-radius:12px;transition:.3s}
-.gallery img:hover{transform:scale(1.025);filter:brightness(1.15)}
-.booking{background:linear-gradient(145deg,#211536,#15121d)}
-.form{max-width:700px;margin:auto;background:#17151f;padding:35px;border-radius:15px;border:1px solid #ffffff15}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.field{display:flex;flex-direction:column;gap:8px}
-.field.full{grid-column:1/-1}
+.gallery img{width:100%;height:220px;object-fit:cover;border-radius:10px}
+.booking{max-width:650px;margin:auto;background:#15141d;padding:30px;border-radius:15px}
+input,select,textarea{width:100%;padding:13px;margin:8px 0 15px;background:#09090d;border:1px solid #393044;border-radius:6px;color:white;font-family:inherit}
 label{font-size:13px;color:#ddd}
-input,textarea{background:#25232e;border:1px solid #ffffff20;color:white;padding:13px;border-radius:7px;outline:none;width:100%}
-input:focus,textarea:focus{border-color:var(--purple)}
-textarea{resize:vertical;min-height:100px}
-.form button{width:100%;margin-top:20px}
-.small{font-size:12px;color:var(--muted);margin-top:12px}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}
-.contact-card{background:var(--card);padding:30px;border-radius:14px}
-.contact-card p{color:var(--muted);margin:14px 0}
-.map{width:100%;height:350px;border:0;border-radius:14px}
-footer{padding:35px 5%;border-top:1px solid #ffffff15;text-align:center;color:var(--muted);font-size:13px}
-footer strong{color:white}
-footer p{margin:8px}
-.mobile-menu{display:none}
+button{width:100%;padding:15px;background:var(--purple);border:0;border-radius:7px;color:white;font-weight:700;cursor:pointer;font-family:inherit}
+.contact{text-align:center}
+footer{text-align:center;padding:30px;background:#101016;color:#888;font-size:12px}
 @media(max-width:750px){
- .navlinks{display:none}
- .mobile-menu{display:block;color:white;background:none;border:0;font-size:26px}
- .navlinks.show{display:flex;position:absolute;top:76px;left:0;width:100%;background:#17151f;padding:25px;flex-direction:column}
- .about-grid,.contact-grid{grid-template-columns:1fr}
- .cards{grid-template-columns:1fr}
- .gallery{grid-template-columns:1fr 1fr}
- .gallery img{height:170px}
- .form-grid{grid-template-columns:1fr}
- .field.full{grid-column:auto}
- section{padding:70px 0}
- .hero{min-height:570px}
+nav{flex-direction:column;gap:12px}
+nav div:last-child{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+nav a{margin:0}
+.about-grid,.cafe-grid{grid-template-columns:1fr}
+.cards{grid-template-columns:1fr}
+.menu-grid{grid-template-columns:1fr}
+.gallery{grid-template-columns:1fr 1fr}
+section{padding:65px 7%}
+.hero{padding:60px 7%}
 }
 </style>
 </head>
@@ -94,196 +63,169 @@ footer p{margin:8px}
 <body>
 
 <nav>
- <a href="#home" class="logo">CHORDS <span>&</span> COFFEE.</a>
- <button class="mobile-menu" onclick="document.querySelector('.navlinks').classList.toggle('show')">☰</button>
- <div class="navlinks">
-  <a href="#home">Home</a>
-  <a href="#about">About</a>
-  <a href="#facilities">Facilities</a>
-  <a href="#gallery">Gallery</a>
-  <a href="#booking">Booking</a>
-  <a href="#contact">Contact</a>
-  <a href="#booking" class="btn">Book a Session</a>
- </div>
+<div class="logo">CHORDS & COFFEE ☕</div>
+<div>
+<a href="#home">Home</a>
+<a href="#studio">Studio</a>
+<a href="#cafe">Café</a>
+<a href="#menu">Menu</a>
+<a href="#gallery">Gallery</a>
+<a href="#booking">Booking</a>
+<a href="#contact">Contact</a>
+</div>
 </nav>
 
-<!-- HERO -->
 <header class="hero" id="home">
- <div class="container hero-content">
-  <div class="tag">THE JAMMING STUDIO · MIRA ROAD</div>
-  <h1>WHERE MUSIC<br>MEETS <span>PASSION.</span></h1>
-  <p>Your stage. Your sound. Your space. Bring your band, express your creativity and let the music speak.</p>
-  <a href="#booking" class="btn">BOOK YOUR SESSION →</a>
-  <a href="#about" class="btn btn-outline">EXPLORE STUDIO</a>
- </div>
+<div class="hero-content">
+<div class="tag">THE JAMMING STUDIO & CAFÉ</div>
+<h1>WHERE MUSIC<br>MEETS <span>COFFEE.</span></h1>
+<p>A place to create music, connect with people, enjoy great coffee and make unforgettable memories.</p>
+<a href="#studio" class="btn">EXPLORE THE STUDIO</a>
+<a href="#cafe" class="btn outline">DISCOVER THE CAFÉ</a>
+</div>
 </header>
 
-<!-- ABOUT -->
-<section id="about">
- <div class="container about-grid">
-  <img class="about-img" src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=900&q=85" alt="Live music performance">
-  <div class="about-text">
-   <div class="tag">ABOUT OUR STUDIO</div>
-   <h2>MORE THAN JUST A STUDIO.</h2>
-   <p>Welcome to Chords & Coffee – The Jamming Studio, a rehearsal studio in Mira Road for musicians and bands who love creating music.</p>
-   <p>Whether you're preparing for a performance or getting together with friends to jam, this is a place to bring your musical ideas to life.</p>
-   <a href="#contact" class="btn">GET IN TOUCH →</a>
-  </div>
- </div>
+<section id="studio">
+<div class="section-title">
+<h2>THE <span>JAMMING STUDIO</span></h2>
+<p>Your music. Your people. Your stage.</p>
+</div>
+<div class="about-grid">
+<img src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=900&q=85" alt="Live music performance">
+<div>
+<h3>Make Some Noise!</h3>
+<p>Whether you're a beginner, a band, or simply someone who loves music, Chords & Coffee is a space to jam, practise, experiment and enjoy the music.</p>
+<p>Bring your instruments, gather your friends and let the music take over.</p>
+</div>
+</div>
 </section>
 
-<!-- FACILITIES -->
-<section id="facilities" style="background:#15151c">
- <div class="container">
-  <div class="section-head">
-   <div class="tag">THE EXPERIENCE</div>
-   <h2>YOUR MUSIC. YOUR SPACE.</h2>
-   <p>Everything starts with a great jamming experience. Contact us to know about available equipment and facilities.</p>
-  </div>
-  <div class="cards">
-   <div class="card"><div class="symbol">🥁</div><h3>Drum Setup</h3><p>Ask us about the available drum equipment.</p></div>
-   <div class="card"><div class="symbol">🎸</div><h3>Guitar Setup</h3><p>Ask us about guitar and amplifier availability.</p></div>
-   <div class="card"><div class="symbol">🎤</div><h3>Microphones</h3><p>Get in touch to enquire about vocal equipment.</p></div>
-   <div class="card"><div class="symbol">🎹</div><h3>Keyboard</h3><p>Enquire about available keyboard facilities.</p></div>
-   <div class="card"><div class="symbol">🎵</div><h3>Band Rehearsals</h3><p>A space to practise and work on your music together.</p></div>
-   <div class="card"><div class="symbol">🎧</div><h3>Music Sessions</h3><p>Bring your creativity and make time for music.</p></div>
-  </div>
- </div>
+<section>
+<div class="section-title">
+<h2>STUDIO <span>EXPERIENCE</span></h2>
+<p>A space made for music lovers.</p>
+</div>
+<div class="cards">
+<div class="card"><h3>🎸 Instruments</h3><p>A place to enjoy playing and practising music together.</p></div>
+<div class="card"><h3>🥁 Jamming Sessions</h3><p>Bring your bandmates and enjoy your music sessions.</p></div>
+<div class="card"><h3>🎤 Music Community</h3><p>Meet fellow music lovers and share your passion.</p></div>
+</div>
 </section>
 
-<!-- GALLERY -->
+<section id="cafe">
+<div class="section-title">
+<h2>THE <span>CAFÉ</span></h2>
+<p>Good coffee. Great conversations. Better vibes.</p>
+</div>
+<div class="cafe-grid">
+<div>
+<h3>Your Break Between Beats ☕</h3>
+<p>Take a break from the music and enjoy the café experience. Whether you're catching up with friends, relaxing after a jam session or simply enjoying your favourite drink, there's always a reason to stay a little longer.</p>
+<a href="#menu" class="btn">EXPLORE THE MENU</a>
+</div>
+<img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=900&q=85" alt="Cozy café interior">
+</div>
+</section>
+
+<section id="menu">
+<div class="section-title">
+<h2>OUR <span>MENU</span></h2>
+<p>A sample menu layout — confirm actual items and prices with the café.</p>
+</div>
+<div class="menu-grid">
+<div class="menu-item"><h3>☕ Hot Coffee</h3><p>Espresso · Cappuccino · Latte · Americano</p></div>
+<div class="menu-item"><h3>🧊 Cold Coffee</h3><p>Iced Coffee · Cold Coffee · Frappe</p></div>
+<div class="menu-item"><h3>🥤 Refreshing Drinks</h3><p>Coolers · Fresh Beverages · Milkshakes</p></div>
+<div class="menu-item"><h3>🍟 Snacks</h3><p>Sandwiches · Fries · Quick Bites</p></div>
+<div class="menu-item"><h3>🍰 Desserts</h3><p>Cakes · Brownies · Sweet Treats</p></div>
+<div class="menu-item"><h3>🎶 Good Vibes</h3><p>Music, coffee and moments worth remembering.</p></div>
+</div>
+</section>
+
 <section id="gallery">
- <div class="container">
-  <div class="section-head">
-   <div class="tag">VISUALISE THE VIBE</div>
-   <h2>THE MUSIC EXPERIENCE.</h2>
-   <p>A glimpse into the world of music, creativity and live performances.</p>
-  </div>
-  <div class="gallery">
-   <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=700&q=85" alt="Music studio">
-   <img src="https://images.unsplash.com/photo-1501612780327-45045538702b?auto=format&fit=crop&w=700&q=85" alt="Concert">
-   <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=700&q=85" alt="Musician">
-   <img src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=700&q=85" alt="Music performance">
-   <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=700&q=85" alt="Live music">
-   <img src="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=700&q=85" alt="Musical instruments">
-  </div>
-  <p class="small" style="text-align:center">Decorative music imagery. Replace these photos with actual studio pictures.</p>
- </div>
+<div class="section-title">
+<h2>THE <span>GALLERY</span></h2>
+<p>A glimpse into the world of music and coffee.</p>
+</div>
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=600&q=85" alt="Singer">
+<img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=600&q=85" alt="Music studio">
+<img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=600&q=85" alt="Concert">
+<img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=85" alt="Coffee">
+<img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=600&q=85" alt="Café">
+<img src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=600&q=85" alt="Live music">
+</div>
 </section>
 
-<!-- BOOKING -->
-<section class="booking" id="booking">
- <div class="container">
-  <div class="section-head">
-   <div class="tag">LET'S MAKE SOME MUSIC</div>
-   <h2>BOOK YOUR JAMMING SESSION.</h2>
-   <p>Fill in your details and send us a booking enquiry on WhatsApp.</p>
-  </div>
-  <form class="form" id="bookingForm">
-   <div class="form-grid">
-    <div class="field">
-     <label for="name">Full Name *</label>
-     <input id="name" required placeholder="Your name">
-    </div>
-    <div class="field">
-     <label for="phone">Phone Number *</label>
-     <input id="phone" type="tel" required placeholder="Your phone number">
-    </div>
-    <div class="field">
-     <label for="date">Preferred Date *</label>
-     <input id="date" type="date" required>
-    </div>
-    <div class="field">
-     <label for="time">Preferred Time *</label>
-     <input id="time" type="time" required>
-    </div>
-    <div class="field">
-     <label for="members">Number of Musicians</label>
-     <input id="members" type="number" min="1" placeholder="Number of people">
-    </div>
-    <div class="field">
-     <label for="email">Email (Optional)</label>
-     <input id="email" type="email" placeholder="Your email">
-    </div>
-    <div class="field full">
-     <label for="message">Additional Message</label>
-     <textarea id="message" placeholder="Tell us anything else..."></textarea>
-    </div>
-   </div>
-   <button type="submit" class="btn">SEND BOOKING ENQUIRY →</button>
-   <p class="small">This is an enquiry, not a confirmed booking. The studio will need to confirm availability.</p>
-  </form>
- </div>
+<section id="booking">
+<div class="section-title">
+<h2>BOOK A <span>JAMMING SESSION</span></h2>
+<p>Send us your enquiry through WhatsApp.</p>
+</div>
+<div class="booking">
+<form id="bookingForm">
+<label>Your Name</label>
+<input id="name" required placeholder="Enter your name">
+<label>Phone Number</label>
+<input id="phone" required placeholder="Enter your phone number">
+<label>Preferred Date</label>
+<input id="date" type="date" required>
+<label>Preferred Time</label>
+<input id="time" type="time" required>
+<label>Number of Musicians</label>
+<select id="people">
+<option>1-2</option><option>3-4</option><option>5-6</option><option>7+</option>
+</select>
+<label>Additional Message</label>
+<textarea id="message" rows="4" placeholder="Tell us anything else..."></textarea>
+<button type="submit">SEND BOOKING ENQUIRY</button>
+</form>
+</div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact">
- <div class="container">
-  <div class="section-head">
-   <div class="tag">COME FIND US</div>
-   <h2>FIND YOUR JAMMING SPOT.</h2>
-   <p>Ready to make some music? Get in touch or find us in Mira Road.</p>
-  </div>
-  <div class="contact-grid">
-   <div class="contact-card">
-    <h3>CHORDS & COFFEE.</h3>
-    <p>📍 Block-20, Sandstone Building, Mira Bhayander Link Road, near Unique Garden, Gaurav City, Mira Road East, Mira Bhayandar, Maharashtra 401107.</p>
-    <p>📞 +91 93221 10034</p>
-    <p>🕙 Listed closing time: 10 PM. Please call to confirm current hours.</p>
-    <a href="tel:+919322110034" class="btn">CALL NOW</a>
-    <a href="https://wa.me/919322110034" class="btn btn-outline">WHATSAPP</a>
-    <br><br>
-    <a href="https://www.google.com/maps/search/?api=1&query=Chords+and+Coffee+The+Jamming+Studio+Mira+Road" target="_blank" class="btn btn-outline">GET DIRECTIONS →</a>
-   </div>
-   <iframe class="map" title="Map showing Chords and Coffee in Mira Road" src="https://maps.google.com/maps?q=Chords%20%26%20Coffee%20The%20Jamming%20Studio%20Mira%20Road&t=&z=15&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
-  </div>
- </div>
+<section id="contact" class="contact">
+<div class="section-title">
+<h2>FIND <span>US</span></h2>
+<p>Come for the music. Stay for the coffee.</p>
+</div>
+<h3>Chords & Coffee – The Jamming Studio</h3>
+<p>Block-20, Sandstone Building, Mira Bhayander Link Road,<br>Near Unique Garden, Mira Road East, Maharashtra 401107</p>
+<p>📞 +91 93221 10034</p>
+<a class="btn" href="tel:+919322110034">CALL US</a>
+<a class="btn outline" href="https://wa.me/919322110034">WHATSAPP</a>
+<br><br>
+<iframe title="Chords and Coffee location" src="https://maps.google.com/maps?q=Chords%20%26%20Coffee%20The%20Jamming%20Studio%20Mira%20Road&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="300" style="border:0;border-radius:12px" loading="lazy"></iframe>
 </section>
 
-<!-- FOOTER -->
 <footer>
- <strong>CHORDS & COFFEE.</strong>
- <p>THE JAMMING STUDIO · WHERE MUSIC MEETS PASSION.</p>
- <p>Mira Road, Maharashtra, India</p>
- <p>© 2026 Chords & Coffee. All rights reserved.</p>
+<p>© 2026 Chords & Coffee – The Jamming Studio. All Rights Reserved.</p>
+<p>Made for music lovers and coffee enthusiasts.</p>
 </footer>
 
 <script>
-const dateInput = document.getElementById('date');
-dateInput.min = new Date().toLocaleDateString('en-CA');
+document.getElementById("bookingForm").addEventListener("submit",function(e){
+e.preventDefault();
+const name=document.getElementById("name").value;
+const phone=document.getElementById("phone").value;
+const date=document.getElementById("date").value;
+const time=document.getElementById("time").value;
+const people=document.getElementById("people").value;
+const message=document.getElementById("message").value;
 
-document.getElementById('bookingForm').addEventListener('submit', function(e) {
- e.preventDefault();
-
- const name = document.getElementById('name').value.trim();
- const phone = document.getElementById('phone').value.trim();
- const date = dateInput.value;
- const time = document.getElementById('time').value;
- const members = document.getElementById('members').value;
- const email = document.getElementById('email').value;
- const message = document.getElementById('message').value;
-
- if(!name || !phone || !date || !time) {
-  alert('Please complete all required fields.');
-  return;
- }
-
- const text = `Hello Chords & Coffee! I would like to enquire about a jamming session.
+const text=`Hello Chords & Coffee! I would like to enquire about a jamming session.
 
 Name: ${name}
 Phone: ${phone}
 Date: ${date}
 Time: ${time}
-Musicians: ${members || 'Not specified'}
-Email: ${email || 'Not provided'}
-Message: ${message || 'None'}
+Musicians: ${people}
+Message: ${message}
 
-Please let me know about availability and charges.`;
+Please share availability and pricing.`;
 
- window.open('https://wa.me/919322110034?text=' + encodeURIComponent(text), '_blank');
+window.open("https://wa.me/919322110034?text="+encodeURIComponent(text),"_blank");
 });
 </script>
 
 </body>
 </html>
-
