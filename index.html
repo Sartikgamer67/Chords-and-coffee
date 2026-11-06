@@ -100,6 +100,107 @@ section{padding:65px 7%}
 *,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
 .reveal{opacity:1;transform:none}
 }
+  
+/* HERO TEXT ANIMATION */
+.hero-content .tag {
+  animation: slideIn 1s ease both;
+}
+
+.hero-content h1 {
+  animation: slideIn 1.2s ease both;
+  animation-delay: .2s;
+}
+
+.hero-content p {
+  animation: slideIn 1.3s ease both;
+  animation-delay: .4s;
+}
+
+.hero-content .btn {
+  animation: fadeUp 1.2s ease both;
+  animation-delay: .6s;
+}
+
+/* FLOATING MUSIC NOTES */
+.music-note {
+  animation: floatMusic 5s ease-in-out infinite;
+}
+
+.note2 { animation-delay: 1.5s; }
+.note3 { animation-delay: 3s; }
+
+/* NAVIGATION UNDERLINE */
+nav a {
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: -6px;
+  background: #d8b4fe;
+  transition: width .3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* MENU CARD GLOW */
+.menu-item:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 10px 30px #a855f755;
+}
+
+/* SECTION HEADING ANIMATION */
+.section-title h2 {
+  transition: letter-spacing .5s ease;
+}
+
+.section-title h2:hover {
+  letter-spacing: 3px;
+}
+
+/* BUTTON GLOW */
+.btn:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 0 25px #a855f7aa;
+}
+
+/* ANIMATION KEYFRAMES */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-45px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatMusic {
+  0%, 100% {
+    transform: translateY(0) rotate(-10deg);
+  }
+  50% {
+    transform: translateY(-35px) rotate(15deg);
+  }
+}
 </style>
 </head>
 
