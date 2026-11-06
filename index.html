@@ -9,43 +9,82 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
-body{font-family:'Poppins',sans-serif;background:#09090d;color:white}
+body{font-family:'Poppins',sans-serif;background:#09090d;color:white;overflow-x:hidden}
 :root{--purple:#a855f7;--light:#d8b4fe}
+
 nav{position:sticky;top:0;z-index:10;background:#101016ee;backdrop-filter:blur(12px);padding:18px 7%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #292333}
 .logo{font-size:22px;font-weight:800;color:var(--light)}
-nav a{color:white;text-decoration:none;margin-left:20px;font-size:13px}
+nav a{color:white;text-decoration:none;margin-left:20px;font-size:13px;transition:.3s}
 nav a:hover{color:var(--light)}
-.hero{min-height:85vh;display:flex;align-items:center;padding:70px 10%;background:linear-gradient(90deg,#09090df2,#09090d88),url('https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1800&q=85') center/cover}
-.hero-content{max-width:700px}
+
+.hero{min-height:85vh;display:flex;align-items:center;padding:70px 10%;background:linear-gradient(90deg,#09090df2,#09090d88),url('https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1800&q=85') center/cover;position:relative;overflow:hidden}
+.hero-content{max-width:700px;animation:heroEnter 1.2s ease both}
 .tag{color:var(--light);letter-spacing:4px;font-size:12px}
 h1{font-size:clamp(42px,7vw,78px);line-height:1.12;margin:20px 0}
 h1 span{color:var(--light)}
 p{color:#bbb;line-height:1.8}
-.btn{display:inline-block;padding:13px 24px;background:var(--purple);color:white;text-decoration:none;border-radius:7px;margin:25px 10px 0 0;font-size:13px;font-weight:600}
+
+.btn{display:inline-block;padding:13px 24px;background:var(--purple);color:white;text-decoration:none;border-radius:7px;margin:25px 10px 0 0;font-size:13px;font-weight:600;transition:.3s;box-shadow:0 0 0 transparent}
+.btn:hover{transform:translateY(-5px);box-shadow:0 0 22px #a855f788}
 .btn.outline{background:transparent;border:1px solid var(--purple)}
+.btn.outline:hover{background:var(--purple)}
+
 section{padding:85px 10%}
 .section-title{text-align:center;margin-bottom:45px}
 .section-title h2{font-size:36px;margin-bottom:12px}
 .section-title span{color:var(--light)}
+
 .about-grid,.cafe-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
-.about-grid img,.cafe-grid img{width:100%;height:350px;object-fit:cover;border-radius:15px}
+.about-grid img,.cafe-grid img{width:100%;height:350px;object-fit:cover;border-radius:15px;transition:transform .6s}
+.about-grid img:hover,.cafe-grid img:hover{transform:scale(1.035)}
+
 h3{font-size:24px;margin-bottom:15px}
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.card{background:#15141d;padding:28px;border:1px solid #30263c;border-radius:12px}
+.card{background:#15141d;padding:28px;border:1px solid #30263c;border-radius:12px;transition:.35s}
+.card:hover{transform:translateY(-9px);border-color:var(--purple);box-shadow:0 10px 30px #a855f722}
 .card h3{color:var(--light);font-size:19px}
 .card p{font-size:13px}
+
 .menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
-.menu-item{background:#15141d;padding:20px;border-radius:9px;border:1px solid #30263c}
+.menu-item{background:#15141d;padding:20px;border-radius:9px;border:1px solid #30263c;transition:.35s}
+.menu-item:hover{transform:translateY(-6px);background:#21172b;border-color:var(--purple)}
 .menu-item h3{font-size:17px;color:var(--light)}
 .menu-item p{font-size:13px}
+
 .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
-.gallery img{width:100%;height:220px;object-fit:cover;border-radius:10px}
+.gallery img{width:100%;height:220px;object-fit:cover;border-radius:10px;transition:.5s}
+.gallery img:hover{transform:scale(1.04);box-shadow:0 0 20px #a855f755}
+
 .booking{max-width:650px;margin:auto;background:#15141d;padding:30px;border-radius:15px}
 input,select,textarea{width:100%;padding:13px;margin:8px 0 15px;background:#09090d;border:1px solid #393044;border-radius:6px;color:white;font-family:inherit}
 label{font-size:13px;color:#ddd}
-button{width:100%;padding:15px;background:var(--purple);border:0;border-radius:7px;color:white;font-weight:700;cursor:pointer;font-family:inherit}
+button{width:100%;padding:15px;background:var(--purple);border:0;border-radius:7px;color:white;font-weight:700;cursor:pointer;font-family:inherit;transition:.3s}
+button:hover{background:#9333ea;box-shadow:0 0 20px #a855f788;transform:translateY(-3px)}
+
 .contact{text-align:center}
 footer{text-align:center;padding:30px;background:#101016;color:#888;font-size:12px}
+
+/* Scroll reveal animation */
+.reveal{opacity:0;transform:translateY(35px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* Floating music notes */
+.music-note{position:absolute;color:#d8b4fe;font-size:25px;opacity:0;pointer-events:none;animation:floatNote 7s linear infinite}
+.note1{left:75%;bottom:10%;animation-delay:0s}
+.note2{left:85%;bottom:5%;animation-delay:2s}
+.note3{left:65%;bottom:0%;animation-delay:4s}
+
+@keyframes heroEnter{
+from{opacity:0;transform:translateY(35px)}
+to{opacity:1;transform:translateY(0)}
+}
+@keyframes floatNote{
+0%{opacity:0;transform:translateY(0) rotate(0deg)}
+20%{opacity:.6}
+80%{opacity:.5}
+100%{opacity:0;transform:translateY(-350px) rotate(25deg)}
+}
+
 @media(max-width:750px){
 nav{flex-direction:column;gap:12px}
 nav div:last-child{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
@@ -56,6 +95,10 @@ nav a{margin:0}
 .gallery{grid-template-columns:1fr 1fr}
 section{padding:65px 7%}
 .hero{padding:60px 7%}
+}
+@media(prefers-reduced-motion:reduce){
+*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+.reveal{opacity:1;transform:none}
 }
 </style>
 </head>
@@ -83,9 +126,12 @@ section{padding:65px 7%}
 <a href="#studio" class="btn">EXPLORE THE STUDIO</a>
 <a href="#cafe" class="btn outline">DISCOVER THE CAFÉ</a>
 </div>
+<div class="music-note note1">♪</div>
+<div class="music-note note2">♫</div>
+<div class="music-note note3">♪</div>
 </header>
 
-<section id="studio">
+<section id="studio" class="reveal">
 <div class="section-title">
 <h2>THE <span>JAMMING STUDIO</span></h2>
 <p>Your music. Your people. Your stage.</p>
@@ -100,7 +146,7 @@ section{padding:65px 7%}
 </div>
 </section>
 
-<section>
+<section class="reveal">
 <div class="section-title">
 <h2>STUDIO <span>EXPERIENCE</span></h2>
 <p>A space made for music lovers.</p>
@@ -112,7 +158,7 @@ section{padding:65px 7%}
 </div>
 </section>
 
-<section id="cafe">
+<section id="cafe" class="reveal">
 <div class="section-title">
 <h2>THE <span>CAFÉ</span></h2>
 <p>Good coffee. Great conversations. Better vibes.</p>
@@ -127,7 +173,7 @@ section{padding:65px 7%}
 </div>
 </section>
 
-<section id="menu">
+<section id="menu" class="reveal">
 <div class="section-title">
 <h2>OUR <span>MENU</span></h2>
 <p>A sample menu layout — confirm actual items and prices with the café.</p>
@@ -142,7 +188,7 @@ section{padding:65px 7%}
 </div>
 </section>
 
-<section id="gallery">
+<section id="gallery" class="reveal">
 <div class="section-title">
 <h2>THE <span>GALLERY</span></h2>
 <p>A glimpse into the world of music and coffee.</p>
@@ -157,7 +203,7 @@ section{padding:65px 7%}
 </div>
 </section>
 
-<section id="booking">
+<section id="booking" class="reveal">
 <div class="section-title">
 <h2>BOOK A <span>JAMMING SESSION</span></h2>
 <p>Send us your enquiry through WhatsApp.</p>
@@ -173,9 +219,7 @@ section{padding:65px 7%}
 <label>Preferred Time</label>
 <input id="time" type="time" required>
 <label>Number of Musicians</label>
-<select id="people">
-<option>1-2</option><option>3-4</option><option>5-6</option><option>7+</option>
-</select>
+<select id="people"><option>1-2</option><option>3-4</option><option>5-6</option><option>7+</option></select>
 <label>Additional Message</label>
 <textarea id="message" rows="4" placeholder="Tell us anything else..."></textarea>
 <button type="submit">SEND BOOKING ENQUIRY</button>
@@ -183,7 +227,7 @@ section{padding:65px 7%}
 </div>
 </section>
 
-<section id="contact" class="contact">
+<section id="contact" class="contact reveal">
 <div class="section-title">
 <h2>FIND <span>US</span></h2>
 <p>Come for the music. Stay for the coffee.</p>
@@ -203,6 +247,19 @@ section{padding:65px 7%}
 </footer>
 
 <script>
+const observer=new IntersectionObserver((entries)=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("visible");
+observer.unobserve(entry.target);
+}
+});
+},{threshold:0.12});
+
+document.querySelectorAll(".reveal").forEach(section=>{
+observer.observe(section);
+});
+
 document.getElementById("bookingForm").addEventListener("submit",function(e){
 e.preventDefault();
 const name=document.getElementById("name").value;
