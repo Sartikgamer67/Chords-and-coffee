@@ -5,491 +5,638 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chords & Coffee | The Jamming Studio</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
-body{font-family:'Poppins',sans-serif;background:#09090d;color:white;overflow-x:hidden}
-:root{--purple:#a855f7;--light:#d8b4fe}
-
-nav{position:sticky;top:0;z-index:10;background:#101016ee;backdrop-filter:blur(12px);padding:18px 7%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #292333}
-.logo{font-size:22px;font-weight:800;color:var(--light)}
-nav a{color:white;text-decoration:none;margin-left:20px;font-size:13px;transition:.3s}
-nav a:hover{color:var(--light)}
-
-.hero{min-height:85vh;display:flex;align-items:center;padding:70px 10%;background:linear-gradient(90deg,#09090df2,#09090d88),url('https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1800&q=85') center/cover;position:relative;overflow:hidden}
-.hero-content{max-width:700px;animation:heroEnter 1.2s ease both}
-.tag{color:var(--light);letter-spacing:4px;font-size:12px}
-h1{font-size:clamp(42px,7vw,78px);line-height:1.12;margin:20px 0}
-h1 span{color:var(--light)}
-p{color:#bbb;line-height:1.8}
-
-.btn{display:inline-block;padding:13px 24px;background:var(--purple);color:white;text-decoration:none;border-radius:7px;margin:25px 10px 0 0;font-size:13px;font-weight:600;transition:.3s;box-shadow:0 0 0 transparent}
-.btn:hover{transform:translateY(-5px);box-shadow:0 0 22px #a855f788}
-.btn.outline{background:transparent;border:1px solid var(--purple)}
-.btn.outline:hover{background:var(--purple)}
-
-section{padding:85px 10%}
-.section-title{text-align:center;margin-bottom:45px}
-.section-title h2{font-size:36px;margin-bottom:12px}
-.section-title span{color:var(--light)}
-
-.about-grid,.cafe-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
-.about-grid img,.cafe-grid img{width:100%;height:350px;object-fit:cover;border-radius:15px;transition:transform .6s}
-.about-grid img:hover,.cafe-grid img:hover{transform:scale(1.035)}
-
-h3{font-size:24px;margin-bottom:15px}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.card{background:#15141d;padding:28px;border:1px solid #30263c;border-radius:12px;transition:.35s}
-.card:hover{transform:translateY(-9px);border-color:var(--purple);box-shadow:0 10px 30px #a855f722}
-.card h3{color:var(--light);font-size:19px}
-.card p{font-size:13px}
-
-.menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
-.menu-item{background:#15141d;padding:20px;border-radius:9px;border:1px solid #30263c;transition:.35s}
-.menu-item:hover{transform:translateY(-6px);background:#21172b;border-color:var(--purple)}
-.menu-item h3{font-size:17px;color:var(--light)}
-.menu-item p{font-size:13px}
-
-.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
-.gallery img{width:100%;height:220px;object-fit:cover;border-radius:10px;transition:.5s}
-.gallery img:hover{transform:scale(1.04);box-shadow:0 0 20px #a855f755}
-
-.booking{max-width:650px;margin:auto;background:#15141d;padding:30px;border-radius:15px}
-input,select,textarea{width:100%;padding:13px;margin:8px 0 15px;background:#09090d;border:1px solid #393044;border-radius:6px;color:white;font-family:inherit}
-label{font-size:13px;color:#ddd}
-button{width:100%;padding:15px;background:var(--purple);border:0;border-radius:7px;color:white;font-weight:700;cursor:pointer;font-family:inherit;transition:.3s}
-button:hover{background:#9333ea;box-shadow:0 0 20px #a855f788;transform:translateY(-3px)}
-
-.contact{text-align:center}
-footer{text-align:center;padding:30px;background:#101016;color:#888;font-size:12px}
-
-/* Scroll reveal animation */
-.reveal{opacity:0;transform:translateY(35px);transition:opacity .8s ease,transform .8s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
-
-/* Floating music notes */
-.music-note{position:absolute;color:#d8b4fe;font-size:25px;opacity:0;pointer-events:none;animation:floatNote 7s linear infinite}
-.note1{left:75%;bottom:10%;animation-delay:0s}
-.note2{left:85%;bottom:5%;animation-delay:2s}
-.note3{left:65%;bottom:0%;animation-delay:4s}
-
-@keyframes heroEnter{
-from{opacity:0;transform:translateY(35px)}
-to{opacity:1;transform:translateY(0)}
-}
-@keyframes floatNote{
-0%{opacity:0;transform:translateY(0) rotate(0deg)}
-20%{opacity:.6}
-80%{opacity:.5}
-100%{opacity:0;transform:translateY(-350px) rotate(25deg)}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
-@media(max-width:750px){
-nav{flex-direction:column;gap:12px}
-nav div:last-child{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
-nav a{margin:0}
-.about-grid,.cafe-grid{grid-template-columns:1fr}
-.cards{grid-template-columns:1fr}
-.menu-grid{grid-template-columns:1fr}
-.gallery{grid-template-columns:1fr 1fr}
-section{padding:65px 7%}
-.hero{padding:60px 7%}
-}
-@media(prefers-reduced-motion:reduce){
-*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
-.reveal{opacity:1;transform:none}
-}
-  
-/* HERO TEXT ANIMATION */
-.hero-content .tag {
-  animation: slideIn 1s ease both;
-}
-
-.hero-content h1 {
-  animation: slideIn 1.2s ease both;
-  animation-delay: .2s;
-}
-
-.hero-content p {
-  animation: slideIn 1.3s ease both;
-  animation-delay: .4s;
-}
-
-.hero-content .btn {
-  animation: fadeUp 1.2s ease both;
-  animation-delay: .6s;
-}
-
-/* FLOATING MUSIC NOTES */
-.music-note {
-  animation: floatMusic 5s ease-in-out infinite;
-}
-
-.note2 { animation-delay: 1.5s; }
-.note3 { animation-delay: 3s; }
-
-/* NAVIGATION UNDERLINE */
-nav a {
-  position: relative;
-}
-
-nav a::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2px;
-  left: 0;
-  bottom: -6px;
-  background: #d8b4fe;
-  transition: width .3s ease;
-}
-
-nav a:hover::after {
-  width: 100%;
-}
-
-/* MENU CARD GLOW */
-.menu-item:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 10px 30px #a855f755;
-}
-
-/* SECTION HEADING ANIMATION */
-.section-title h2 {
-  transition: letter-spacing .5s ease;
-}
-
-.section-title h2:hover {
-  letter-spacing: 3px;
-}
-
-/* BUTTON GLOW */
-.btn:hover {
-  transform: translateY(-6px) scale(1.04);
-  box-shadow: 0 0 25px #a855f7aa;
-}
-
-/* ANIMATION KEYFRAMES */
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(-45px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(25px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes floatMusic {
-  0%, 100% {
-    transform: translateY(0) rotate(-10deg);
-  }
-  50% {
-    transform: translateY(-35px) rotate(15deg);
-  }
-}
-/* PURPLE MOUSE SPOTLIGHT */
 body {
-  background-image: radial-gradient(
-    circle at var(--mouse-x, 50%) var(--mouse-y, 20%),
-    rgba(168,85,247,.12),
-    transparent 35%
-  );
-  background-attachment: fixed;
+  background: #10110e;
+  color: #f5f0e7;
+  font-family: 'DM Sans', sans-serif;
 }
 
-/* HERO GLOW */
+:root {
+  --gold: #d9a96b;
+  --dark: #10110e;
+  --cream: #f5f0e7;
+}
+
+nav {
+  min-height: 85px;
+  padding: 15px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(16,17,14,.96);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid #ffffff16;
+  gap: 20px;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  letter-spacing: 1px;
+  color: var(--gold);
+  white-space: nowrap;
+}
+
+nav ul {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  transition: .3s;
+}
+
+nav a:hover {
+  color: var(--gold);
+}
+
+.nav-btn {
+  padding: 12px 23px;
+  background: var(--gold);
+  color: #15120e;
+  border-radius: 30px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.hero {
+  min-height: 680px;
+  display: flex;
+  align-items: center;
+  padding: 90px 10%;
+  background:
+  linear-gradient(90deg,rgba(0,0,0,.88),rgba(0,0,0,.35)),
+  url('https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=2000&q=85') center/cover;
+}
+
+.hero-content {
+  max-width: 650px;
+  animation: appear 1s ease;
+}
+
+.tag {
+  color: var(--gold);
+  letter-spacing: 4px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(48px,7vw,88px);
+  line-height: 1.1;
+  margin: 25px 0;
+}
+
 .hero h1 span {
-  text-shadow: 0 0 15px #a855f7,
-               0 0 35px #a855f755;
-  animation: neonPulse 2.5s infinite alternate;
+  color: var(--gold);
 }
 
-@keyframes neonPulse {
-  from { text-shadow: 0 0 8px #a855f7; }
-  to { text-shadow: 0 0 30px #a855f7, 0 0 55px #a855f799; }
+.hero p {
+  color: #ddd;
+  line-height: 1.9;
+  max-width: 480px;
+  margin-bottom: 32px;
 }
 
-/* GALLERY IMAGE EFFECT */
-.gallery img {
-  transition: transform .6s ease, filter .6s ease;
-}
-
-.gallery img:hover {
-  transform: scale(1.08) rotate(1.5deg);
-  filter: brightness(1.2);
-}
-
-/* MENU BORDER GLOW */
-.menu-item {
-  position: relative;
-  overflow: hidden;
-}
-
-.menu-item:hover {
-  border-color: #d8b4fe;
-  box-shadow: 0 0 25px #a855f755;
-}
-
-/* FLOATING HERO BACKGROUND */
-.hero::before {
-  content: "";
-  position: absolute;
-  width: 350px;
-  height: 350px;
-  background: #a855f7;
-  filter: blur(150px);
-  opacity: .15;
-  right: 5%;
-  top: 20%;
-  animation: purpleFloat 6s ease-in-out infinite alternate;
-  pointer-events: none;
-}
-
-@keyframes purpleFloat {
-  from { transform: translate(0,0); }
-  to { transform: translate(-70px,40px); }
-}
-
-/* SECTION REVEAL */
-.reveal.visible .section-title h2 {
-  animation: titlePop .8s ease both;
-}
-
-@keyframes titlePop {
-  from {
-    opacity: 0;
-    transform: translateY(25px) scale(.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* STUDIO CARDS */
-.card {
-  transition: transform .4s ease, box-shadow .4s ease;
-}
-
-.card:hover {
-  transform: translateY(-12px) rotate(-1deg);
-  box-shadow: 0 15px 35px #a855f755;
-}
-
-/* BUTTON PULSE */
 .btn {
-  animation: buttonGlow 3s ease-in-out infinite;
+  display: inline-block;
+  padding: 15px 29px;
+  background: var(--gold);
+  color: #17130e;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 700;
+  transition: .3s;
+  border: none;
+  cursor: pointer;
 }
 
-@keyframes buttonGlow {
-  0%,100% { box-shadow: 0 0 0 transparent; }
-  50% { box-shadow: 0 0 16px #a855f755; }
+.btn:hover {
+  transform: translateY(-4px);
+  background: #efc58c;
 }
-  // Your existing booking form code stays here...
 
-document.addEventListener("mousemove", (e) => {
-  document.body.style.setProperty("--mouse-x", e.clientX + "px");
-  document.body.style.setProperty("--mouse-y", e.clientY + "px");
-});
+section {
+  padding: 100px 10%;
+}
 
-</script>
+.section-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 43px;
+  margin: 15px 0;
+}
+
+.subtitle {
+  color: #aaa;
+  line-height: 1.8;
+  max-width: 620px;
+}
+
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 65px;
+  align-items: center;
+}
+
+.about img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: .5s;
+}
+
+.about img:hover {
+  transform: scale(1.025);
+}
+
+.about-text p {
+  color: #aaa;
+  line-height: 1.9;
+  margin: 22px 0;
+}
+
+.rating {
+  color: var(--gold);
+  margin-top: 22px;
+  font-size: 20px;
+}
+
+.menu {
+  background: #191a16;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 24px;
+  margin-top: 45px;
+}
+
+.menu-card {
+  background: #22231e;
+  padding: 32px;
+  border: 1px solid #ffffff12;
+  transition: .4s;
+  border-radius: 8px;
+}
+
+.menu-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--gold);
+}
+
+.menu-card h3 {
+  color: var(--gold);
+  font-family: 'Playfair Display', serif;
+  font-size: 23px;
+  margin-bottom: 12px;
+}
+
+.menu-card p {
+  color: #aaa;
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+.music {
+  text-align: center;
+  background:
+  linear-gradient(#10110ee0,#10110ee0),
+  url('https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1600&q=85') center/cover;
+}
+
+.music p {
+  max-width: 600px;
+  margin: 20px auto 30px;
+  color: #bbb;
+  line-height: 1.9;
+}
+
+.reviews {
+  text-align: center;
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 22px;
+  margin-top: 45px;
+  text-align: left;
+}
+
+.review {
+  background: #1c1d18;
+  padding: 30px;
+  border-radius: 8px;
+}
+
+.review .stars {
+  color: var(--gold);
+  margin-bottom: 15px;
+}
+
+.review p {
+  color: #ccc;
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+.review h4 {
+  margin-top: 20px;
+  color: var(--gold);
+}
+
+.booking {
+  background: #191a16;
+}
+
+.booking-container {
+  max-width: 700px;
+  margin: auto;
+}
+
+.booking form {
+  display: grid;
+  gap: 16px;
+  margin-top: 35px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 16px;
+  background: #272821;
+  color: white;
+  border: 1px solid #ffffff20;
+  border-radius: 5px;
+  font-family: inherit;
+  outline: none;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--gold);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.visit {
+  text-align: center;
+}
+
+.visit p {
+  color: #aaa;
+  line-height: 2;
+  margin: 20px 0;
+}
+
+footer {
+  padding: 45px 10%;
+  text-align: center;
+  border-top: 1px solid #ffffff16;
+}
+
+footer h2 {
+  color: var(--gold);
+  font-family: 'Playfair Display',serif;
+  letter-spacing: 1px;
+  font-size: 27px;
+}
+
+footer p {
+  color: #888;
+  margin-top: 15px;
+  font-size: 13px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: .8s;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes appear {
+  from {opacity:0; transform:translateY(30px)}
+  to {opacity:1; transform:translateY(0)}
+}
+
+@media(max-width:850px) {
+  nav {padding: 15px 5%; flex-wrap: wrap}
+  nav ul {gap: 13px}
+  nav a {font-size: 12px}
+  .nav-btn {display:none}
+  section {padding: 75px 7%}
+  .about {grid-template-columns:1fr}
+  .menu-grid,.review-grid {grid-template-columns:1fr}
+}
+
+@media(max-width:550px) {
+  nav {height:auto; justify-content:center}
+  .logo {font-size:22px}
+  nav ul {width:100%; justify-content:center; gap:15px}
+  nav ul a {font-size:11px}
+  .hero {min-height:580px;padding:70px 7%}
+  .hero h1 {font-size:52px}
+  .section-heading {font-size:35px}
+  .about img {height:290px}
+}
 </style>
 </head>
 
 <body>
 
 <nav>
-<div class="logo">CHORDS & COFFEE ☕</div>
-<div>
-<a href="#home">Home</a>
-<a href="#studio">Studio</a>
-<a href="#cafe">Café</a>
-<a href="#menu">Menu</a>
-<a href="#gallery">Gallery</a>
-<a href="#booking">Booking</a>
-<a href="#contact">Contact</a>
-</div>
+  <div class="logo">Chords & Coffee</div>
+
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#music">Music</a></li>
+    <li><a href="#contact">Visit</a></li>
+  </ul>
+
+  <a href="#booking" class="nav-btn">Book a Visit</a>
 </nav>
 
 <header class="hero" id="home">
-<div class="hero-content">
-<div class="tag">THE JAMMING STUDIO & CAFÉ</div>
-<h1>WHERE MUSIC<br>MEETS <span>COFFEE.</span></h1>
-<p>A place to create music, connect with people, enjoy great coffee and make unforgettable memories.</p>
-<a href="#studio" class="btn">EXPLORE THE STUDIO</a>
-<a href="#cafe" class="btn outline">DISCOVER THE CAFÉ</a>
-</div>
-<div class="music-note note1">♪</div>
-<div class="music-note note2">♫</div>
-<div class="music-note note3">♪</div>
+  <div class="hero-content">
+    <div class="tag">Coffee • Music • Community</div>
+
+    <h1>Where Coffee<br>Meets <span>Music.</span></h1>
+
+    <p>
+      More than just a coffee spot. A place to sip,
+      jam, connect and create unforgettable memories.
+      Welcome to Chords & Coffee.
+    </p>
+
+    <a href="#booking" class="btn">Let's Connect ↗</a>
+  </div>
 </header>
 
-<section id="studio" class="reveal">
-<div class="section-title">
-<h2>THE <span>JAMMING STUDIO</span></h2>
-<p>Your music. Your people. Your stage.</p>
-</div>
-<div class="about-grid">
-<img src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=900&q=85" alt="Live music performance">
-<div>
-<h3>Make Some Noise!</h3>
-<p>Whether you're a beginner, a band, or simply someone who loves music, Chords & Coffee is a space to jam, practise, experiment and enjoy the music.</p>
-<p>Bring your instruments, gather your friends and let the music take over.</p>
-</div>
-</div>
+<section class="about reveal" id="about">
+
+  <img
+  src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=85"
+  alt="Coffee">
+
+  <div class="about-text">
+    <div class="tag">Our Story</div>
+
+    <h2 class="section-heading">
+      A Little Coffee.<br>A Lot of Music.
+    </h2>
+
+    <p>
+      Chords & Coffee is a unique hangout space where
+      music, coffee and good company come together.
+      Whether you love playing music, chilling with
+      friends or enjoying a cup of chai, there's a
+      little something here for everyone.
+    </p>
+
+    <div class="rating">
+      ★★★★★
+      <span style="color:white;font-size:14px">
+        4.8 / 5 · 22 Reviews
+      </span>
+    </div>
+  </div>
+
 </section>
 
-<section class="reveal">
-<div class="section-title">
-<h2>STUDIO <span>EXPERIENCE</span></h2>
-<p>A space made for music lovers.</p>
-</div>
-<div class="cards">
-<div class="card"><h3>🎸 Instruments</h3><p>A place to enjoy playing and practising music together.</p></div>
-<div class="card"><h3>🥁 Jamming Sessions</h3><p>Bring your bandmates and enjoy your music sessions.</p></div>
-<div class="card"><h3>🎤 Music Community</h3><p>Meet fellow music lovers and share your passion.</p></div>
-</div>
+<section class="menu reveal" id="menu">
+
+  <div class="tag">Something for everyone</div>
+
+  <h2 class="section-heading">Explore Our Vibe.</h2>
+
+  <p class="subtitle">
+    Good company, refreshing drinks and moments worth remembering.
+  </p>
+
+  <div class="menu-grid">
+
+    <div class="menu-card">
+      <h3>☕ Coffee & Chai</h3>
+      <p>Your favourite sips to make every conversation better.</p>
+    </div>
+
+    <div class="menu-card">
+      <h3>🎸 Music Sessions</h3>
+      <p>Bring your musical side to life and enjoy the rhythm.</p>
+    </div>
+
+    <div class="menu-card">
+      <h3>🎲 Games & Hangouts</h3>
+      <p>UNO, friends, laughter and unforgettable memories.</p>
+    </div>
+
+  </div>
+
+  <p style="color:#888;margin-top:25px;font-size:12px">
+    Menu descriptions are introductory. Confirm actual offerings with the owner.
+  </p>
+
 </section>
 
-<section id="cafe" class="reveal">
-<div class="section-title">
-<h2>THE <span>CAFÉ</span></h2>
-<p>Good coffee. Great conversations. Better vibes.</p>
-</div>
-<div class="cafe-grid">
-<div>
-<h3>Your Break Between Beats ☕</h3>
-<p>Take a break from the music and enjoy the café experience. Whether you're catching up with friends, relaxing after a jam session or simply enjoying your favourite drink, there's always a reason to stay a little longer.</p>
-<a href="#menu" class="btn">EXPLORE THE MENU</a>
-</div>
-<img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=900&q=85" alt="Cozy café interior">
-</div>
+<section class="music reveal" id="music">
+
+  <div class="tag">Feel the rhythm</div>
+
+  <h2 class="section-heading">Your Space. Your Sound.</h2>
+
+  <p>
+    Music brings people together. Discover a place
+    where you can enjoy the atmosphere, explore
+    your creativity and share your love for music.
+  </p>
+
+  <a href="#booking" class="btn">Enquire Now ↗</a>
+
 </section>
 
-<section id="menu" class="reveal">
-<div class="section-title">
-<h2>OUR <span>MENU</span></h2>
-<p>A sample menu layout — confirm actual items and prices with the café.</p>
-</div>
-<div class="menu-grid">
-<div class="menu-item"><h3>☕ Hot Coffee</h3><p>Espresso · Cappuccino · Latte · Americano</p></div>
-<div class="menu-item"><h3>🧊 Cold Coffee</h3><p>Iced Coffee · Cold Coffee · Frappe</p></div>
-<div class="menu-item"><h3>🥤 Refreshing Drinks</h3><p>Coolers · Fresh Beverages · Milkshakes</p></div>
-<div class="menu-item"><h3>🍟 Snacks</h3><p>Sandwiches · Fries · Quick Bites</p></div>
-<div class="menu-item"><h3>🍰 Desserts</h3><p>Cakes · Brownies · Sweet Treats</p></div>
-<div class="menu-item"><h3>🎶 Good Vibes</h3><p>Music, coffee and moments worth remembering.</p></div>
-</div>
+<section class="reviews reveal">
+
+  <div class="tag">Words from our visitors</div>
+
+  <h2 class="section-heading">People Love the Vibe.</h2>
+
+  <div class="review-grid">
+
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>"Best place for hangout and jamming."</p>
+      <h4>Customer Review</h4>
+    </div>
+
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>
+        "Thoughtfully created space where music and
+        coffee come together effortlessly."
+      </p>
+      <h4>Customer Review</h4>
+    </div>
+
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>"The ambience, food and hospitality service is really nice."</p>
+      <h4>Customer Review</h4>
+    </div>
+
+  </div>
+
 </section>
 
-<section id="gallery" class="reveal">
-<div class="section-title">
-<h2>THE <span>GALLERY</span></h2>
-<p>A glimpse into the world of music and coffee.</p>
-</div>
-<div class="gallery">
-<img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=600&q=85" alt="Singer">
-<img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=600&q=85" alt="Music studio">
-<img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=600&q=85" alt="Concert">
-<img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=85" alt="Coffee">
-<img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=600&q=85" alt="Café">
-<img src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=600&q=85" alt="Live music">
-</div>
+<section class="booking reveal" id="booking">
+
+  <div class="booking-container">
+
+    <div class="tag">Let's make memories</div>
+
+    <h2 class="section-heading">Plan Your Visit.</h2>
+
+    <p class="subtitle">
+      Have a question or want to enquire about a visit?
+      Send us a message directly on WhatsApp.
+    </p>
+
+    <form id="bookingForm">
+
+      <input type="text" id="name"
+      placeholder="Your Name" required>
+
+      <input type="tel" id="phone"
+      placeholder="Your Phone Number" required>
+
+      <select id="purpose">
+        <option value="Cafe visit">Cafe Visit</option>
+        <option value="Jamming enquiry">Jamming Enquiry</option>
+        <option value="Group hangout">Group Hangout</option>
+        <option value="General enquiry">General Enquiry</option>
+      </select>
+
+      <textarea id="message"
+      placeholder="Tell us something..."></textarea>
+
+      <button class="btn" type="submit">
+        Send Enquiry on WhatsApp ↗
+      </button>
+
+    </form>
+
+  </div>
+
 </section>
 
-<section id="booking" class="reveal">
-<div class="section-title">
-<h2>BOOK A <span>JAMMING SESSION</span></h2>
-<p>Send us your enquiry through WhatsApp.</p>
-</div>
-<div class="booking">
-<form id="bookingForm">
-<label>Your Name</label>
-<input id="name" required placeholder="Enter your name">
-<label>Phone Number</label>
-<input id="phone" required placeholder="Enter your phone number">
-<label>Preferred Date</label>
-<input id="date" type="date" required>
-<label>Preferred Time</label>
-<input id="time" type="time" required>
-<label>Number of Musicians</label>
-<select id="people"><option>1-2</option><option>3-4</option><option>5-6</option><option>7+</option></select>
-<label>Additional Message</label>
-<textarea id="message" rows="4" placeholder="Tell us anything else..."></textarea>
-<button type="submit">SEND BOOKING ENQUIRY</button>
-</form>
-</div>
-</section>
+<section class="visit reveal" id="contact">
 
-<section id="contact" class="contact reveal">
-<div class="section-title">
-<h2>FIND <span>US</span></h2>
-<p>Come for the music. Stay for the coffee.</p>
-</div>
-<h3>Chords & Coffee – The Jamming Studio</h3>
-<p>Block-20, Sandstone Building, Mira Bhayander Link Road,<br>Near Unique Garden, Mira Road East, Maharashtra 401107</p>
-<p>📞 +91 93221 10034</p>
-<a class="btn" href="tel:+919322110034">CALL US</a>
-<a class="btn outline" href="https://wa.me/919322110034">WHATSAPP</a>
-<br><br>
-<iframe title="Chords and Coffee location" src="https://maps.google.com/maps?q=Chords%20%26%20Coffee%20The%20Jamming%20Studio%20Mira%20Road&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="300" style="border:0;border-radius:12px" loading="lazy"></iframe>
+  <div class="tag">Find us here</div>
+
+  <h2 class="section-heading">Come Say Hello.</h2>
+
+  <p>
+    Chords & Coffee – The Jamming Studio<br>
+    Block 20, Sandstone Building, Mira Bhayander Link Road,<br>
+    Near Unique Garden, Gaurav City,<br>
+    Mira Road East, Maharashtra 401107.
+    <br><br>
+    Phone: 093221 10034<br>
+    Opening time: 10:00 AM (confirm daily hours)
+  </p>
+
+  <a class="btn"
+  href="https://www.google.com/maps/search/?api=1&query=Chords+%26+Coffee+The+Jamming+Studio+Mira+Road"
+  target="_blank">
+    Get Directions ↗
+  </a>
+
 </section>
 
 <footer>
-<p>© 2026 Chords & Coffee – The Jamming Studio. All Rights Reserved.</p>
-<p>Made for music lovers and coffee enthusiasts.</p>
+
+  <h2>Chords & Coffee</h2>
+
+  <p>The Jamming Studio</p>
+
+  <p>© 2026 Chords & Coffee. All rights reserved.</p>
+
 </footer>
 
 <script>
-const observer=new IntersectionObserver((entries)=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.classList.add("visible");
-observer.unobserve(entry.target);
-}
-});
-},{threshold:0.12});
 
-document.querySelectorAll(".reveal").forEach(section=>{
-observer.observe(section);
-});
+// WhatsApp enquiry form
 
-document.getElementById("bookingForm").addEventListener("submit",function(e){
-e.preventDefault();
-const name=document.getElementById("name").value;
-const phone=document.getElementById("phone").value;
-const date=document.getElementById("date").value;
-const time=document.getElementById("time").value;
-const people=document.getElementById("people").value;
-const message=document.getElementById("message").value;
+document.getElementById("bookingForm").addEventListener("submit", function(e) {
 
-const text=`Hello Chords & Coffee! I would like to enquire about a jamming session.
+  e.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const phone = document.getElementById("phone").value;
+  const purpose = document.getElementById("purpose").value;
+  const message = document.getElementById("message").value;
+
+  const text = `Hello Chords & Coffee!
 
 Name: ${name}
 Phone: ${phone}
-Date: ${date}
-Time: ${time}
-Musicians: ${people}
-Message: ${message}
+Enquiry: ${purpose}
+Message: ${message}`;
 
-Please share availability and pricing.`;
+  const url = "https://wa.me/919322110034?text=" + encodeURIComponent(text);
 
-window.open("https://wa.me/919322110034?text="+encodeURIComponent(text),"_blank");
+  window.open(url, "_blank");
+
 });
+
+// Scroll animations
+
+const observer = new IntersectionObserver((entries) => {
+
+  entries.forEach(entry => {
+
+    if(entry.isIntersecting) {
+      entry.target.classList.add("active");
+    }
+
+  });
+
+}, {threshold: 0.15});
+
+document.querySelectorAll(".reveal").forEach(el => {
+  observer.observe(el);
+});
+
 </script>
 
 </body>
 </html>
+
